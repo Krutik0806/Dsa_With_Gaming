@@ -1,0 +1,26 @@
+{
+  "name": "dsa-with-gaming",
+  "version": "1.0.0",
+  "description": "A gamified learning platform for Data Structures & Algorithms",
+  "main": "server/server.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && node server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "dsa",
+    "education",
+    "gamification",
+    "learning",
+    "algorithms",
+    "data-structures"
+  ],
+  "author": "Your Team Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

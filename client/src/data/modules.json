@@ -1,0 +1,97 @@
+{
+    "modules": [
+        {
+            "id": "sorting",
+            "title": "Sorting Algorithms",
+            "description": "Learn how sorting algorithms work through visual step-by-step execution",
+            "icon": "🔄",
+            "difficulty": "Beginner",
+            "levels": [
+                {
+                    "id": 1,
+                    "title": "Bubble Sort - Introduction",
+                    "type": "concept",
+                    "description": "Understand the basics of Bubble Sort algorithm"
+                },
+                {
+                    "id": 2,
+                    "title": "Bubble Sort - Interactive",
+                    "type": "interactive",
+                    "description": "Practice sorting arrays yourself"
+                },
+                {
+                    "id": 3,
+                    "title": "Selection Sort - Practice",
+                    "type": "practice",
+                    "description": "Apply your knowledge to solve challenges"
+                },
+                {
+                    "id": 4,
+                    "title": "Sorting Quiz",
+                    "type": "quiz",
+                    "description": "Test your understanding"
+                }
+            ]
+        },
+        {
+            "id": "stack-queue",
+            "title": "Stack & Queue",
+            "description": "Understand LIFO and FIFO data structures",
+            "icon": "📚",
+            "difficulty": "Beginner",
+            "levels": [
+                {
+                    "id": 1,
+                    "title": "Stack Basics",
+                    "type": "concept",
+                    "description": "Learn about LIFO (Last In First Out)"
+                },
+                {
+                    "id": 2,
+                    "title": "Queue Basics",
+                    "type": "concept",
+                    "description": "Learn about FIFO (First In First Out)"
+                },
+                {
+                    "id": 3,
+                    "title": "Stack & Queue Quiz",
+                    "type": "quiz",
+                    "description": "Test your knowledge"
+                }
+            ]
+        },
+        {
+            "id": "trees",
+            "title": "Tree Basics",
+            "description": "Master hierarchical data structures",
+            "icon": "🌳",
+            "difficulty": "Intermediate",
+            "levels": [
+                {
+                    "id": 1,
+                    "title": "Binary Tree Introduction",
+                    "type": "concept",
+                    "description": "Understand tree structure"
+                },
+                {
+                    "id": 2,
+                    "title": "Tree Insertion",
+                    "type": "interactive",
+                    "description": "Build trees by inserting nodes"
+                },
+                {
+                    "id": 3,
+                    "title": "Tree Traversal",
+                    "type": "concept",
+                    "description": "Learn in-order, pre-order, post-order"
+                },
+                {
+                    "id": 4,
+                    "title": "Trees Quiz",
+                    "type": "quiz",
+                    "description": "Test your understanding"
+                }
+            ]
+        }
+    ]
+}
