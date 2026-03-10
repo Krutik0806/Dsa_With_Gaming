@@ -1,0 +1,450 @@
+{
+    "sorting": [
+        {
+            "question": "What is the time complexity of Bubble Sort in the worst case?",
+            "options": [
+                "O(n)",
+                "O(n log n)",
+                "O(n²)",
+                "O(log n)"
+            ],
+            "correctIndex": 2,
+            "explanation": "Bubble Sort compares each pair in every pass, giving O(n²) worst-case."
+        },
+        {
+            "question": "After the first complete pass of Bubble Sort, which element is guaranteed to be in its correct position?",
+            "options": [
+                "The smallest",
+                "The largest",
+                "The middle",
+                "The first"
+            ],
+            "correctIndex": 1,
+            "explanation": "The largest element 'bubbles up' to the last position after one full pass."
+        },
+        {
+            "question": "Which sorting algorithm selects the minimum element each pass?",
+            "options": [
+                "Bubble Sort",
+                "Insertion Sort",
+                "Selection Sort",
+                "Merge Sort"
+            ],
+            "correctIndex": 2,
+            "explanation": "Selection Sort finds the minimum from the unsorted portion and places it at the front."
+        },
+        {
+            "question": "How many swaps does Selection Sort make in the worst case for n elements?",
+            "options": [
+                "O(n²)",
+                "O(n)",
+                "O(n log n)",
+                "O(1)"
+            ],
+            "correctIndex": 1,
+            "explanation": "Selection Sort makes exactly n-1 swaps — one per pass — so O(n) swaps."
+        },
+        {
+            "question": "Which sorting algorithm is stable?",
+            "options": [
+                "Selection Sort only",
+                "Bubble Sort only",
+                "Both are stable",
+                "Neither is stable"
+            ],
+            "correctIndex": 1,
+            "explanation": "Bubble Sort is stable (equal elements keep relative order). Selection Sort is NOT stable."
+        },
+        {
+            "question": "What is the best-case time complexity of Bubble Sort (with early termination)?",
+            "options": [
+                "O(n²)",
+                "O(n log n)",
+                "O(n)",
+                "O(1)"
+            ],
+            "correctIndex": 2,
+            "explanation": "With the 'no swaps' optimization, if the array is already sorted, Bubble Sort runs in O(n)."
+        },
+        {
+            "question": "Selection Sort always performs how many comparisons for n elements?",
+            "options": [
+                "O(n)",
+                "O(n²)",
+                "O(n log n)",
+                "Depends on data"
+            ],
+            "correctIndex": 1,
+            "explanation": "Selection Sort always performs n*(n-1)/2 comparisons regardless of input — O(n²)."
+        },
+        {
+            "question": "Which algorithm is generally better for nearly-sorted arrays?",
+            "options": [
+                "Selection Sort",
+                "Bubble Sort",
+                "Both perform equally",
+                "Neither"
+            ],
+            "correctIndex": 1,
+            "explanation": "Bubble Sort with early termination detects a sorted array in O(n), making it better for nearly-sorted inputs."
+        },
+        {
+            "question": "What happens in Bubble Sort when no swaps occur in a full pass?",
+            "options": [
+                "It starts over",
+                "It skips to Selection Sort",
+                "The array is sorted — algorithm stops",
+                "It reverses the array"
+            ],
+            "correctIndex": 2,
+            "explanation": "No swaps in a pass means the array is fully sorted — the algorithm can terminate early."
+        },
+        {
+            "question": "If you have 5 elements, how many passes does Bubble Sort need in the worst case?",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "10"
+            ],
+            "correctIndex": 1,
+            "explanation": "Bubble Sort needs n-1 passes in the worst case. For n=5, that's 4 passes."
+        }
+    ],
+    "stack-queue": [
+        {
+            "question": "What does LIFO stand for?",
+            "options": [
+                "Last In First Out",
+                "Last In Fixed Order",
+                "Left In First Out",
+                "Least Integer Fixed Order"
+            ],
+            "correctIndex": 0,
+            "explanation": "LIFO = Last In, First Out. The last element pushed is the first to be popped."
+        },
+        {
+            "question": "Which operation removes the top element of a stack?",
+            "options": [
+                "push",
+                "enqueue",
+                "pop",
+                "dequeue"
+            ],
+            "correctIndex": 2,
+            "explanation": "pop() removes and returns the top element of the stack."
+        },
+        {
+            "question": "What happens when you pop from an empty stack?",
+            "options": [
+                "Returns null",
+                "Returns -1",
+                "Stack Overflow",
+                "Stack Underflow"
+            ],
+            "correctIndex": 3,
+            "explanation": "Popping from an empty stack causes a Stack Underflow error."
+        },
+        {
+            "question": "In a Queue, where are elements removed from?",
+            "options": [
+                "Rear",
+                "Middle",
+                "Front",
+                "Top"
+            ],
+            "correctIndex": 2,
+            "explanation": "Elements are dequeued (removed) from the Front and enqueued (added) at the Rear."
+        },
+        {
+            "question": "Which scenario best represents a Stack?",
+            "options": [
+                "Printer job queue",
+                "Bank teller line",
+                "Browser Back button history",
+                "Supermarket checkout"
+            ],
+            "correctIndex": 2,
+            "explanation": "The browser Back button uses a stack — the last page visited is the first you go back to."
+        },
+        {
+            "question": "What does FIFO stand for?",
+            "options": [
+                "First In Fixed Order",
+                "First In First Out",
+                "Final In First Out",
+                "Forward In Forward Out"
+            ],
+            "correctIndex": 1,
+            "explanation": "FIFO = First In, First Out. The first element enqueued is the first one dequeued."
+        },
+        {
+            "question": "Which data structure uses push and pop operations?",
+            "options": [
+                "Queue",
+                "Stack",
+                "Linked List",
+                "Tree"
+            ],
+            "correctIndex": 1,
+            "explanation": "Stacks use push (add) and pop (remove) operations on the top of the structure."
+        },
+        {
+            "question": "What is the maximum number of elements a stack can hold called?",
+            "options": [
+                "Capacity",
+                "Stack Size",
+                "Stack Limit",
+                "Stack Overflow point"
+            ],
+            "correctIndex": 0,
+            "explanation": "The maximum number of elements is called the Capacity of the stack."
+        },
+        {
+            "question": "Which operation only views the top of the stack WITHOUT removing it?",
+            "options": [
+                "pop",
+                "push",
+                "peek",
+                "dequeue"
+            ],
+            "correctIndex": 2,
+            "explanation": "peek() (or top()) returns the top element without removing it from the stack."
+        },
+        {
+            "question": "A queue is empty. We enqueue 1, 2, 3 then dequeue twice. What is the front?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "Queue is empty"
+            ],
+            "correctIndex": 2,
+            "explanation": "After enqueue(1,2,3) and two dequeues (removing 1 then 2), element 3 is now at the front."
+        }
+    ],
+    "trees": [
+        {
+            "question": "What is a Binary Search Tree (BST) property?",
+            "options": [
+                "Left > Parent, Right < Parent",
+                "Left < Parent, Right > Parent",
+                "All nodes are equal",
+                "Parent is always the largest"
+            ],
+            "correctIndex": 1,
+            "explanation": "BST: left subtree nodes < parent, right subtree nodes > parent."
+        },
+        {
+            "question": "Which traversal visits BST nodes in sorted ascending order?",
+            "options": [
+                "Pre-order",
+                "Post-order",
+                "In-order",
+                "Level-order"
+            ],
+            "correctIndex": 2,
+            "explanation": "In-order (Left → Root → Right) visits BST nodes in ascending sorted order."
+        },
+        {
+            "question": "What is the Root of a tree?",
+            "options": [
+                "Last inserted node",
+                "Node with no children",
+                "Topmost node with no parent",
+                "Node with two children"
+            ],
+            "correctIndex": 2,
+            "explanation": "The root is the topmost node in a tree — it has no parent."
+        },
+        {
+            "question": "What is a Leaf node?",
+            "options": [
+                "Node with one child",
+                "Node with no children",
+                "The root node",
+                "Node with exactly two children"
+            ],
+            "correctIndex": 1,
+            "explanation": "A leaf node has no children — it sits at the bottom of the tree."
+        },
+        {
+            "question": "In Pre-order traversal, which is visited first?",
+            "options": [
+                "Left child",
+                "Right child",
+                "Root",
+                "Any leaf"
+            ],
+            "correctIndex": 2,
+            "explanation": "Pre-order: Root → Left → Right. Root is always visited first."
+        },
+        {
+            "question": "Insert values 5, 3, 7 into an empty BST. Where does 3 go?",
+            "options": [
+                "Root",
+                "Right child of 5",
+                "Left child of 5",
+                "Right child of 7"
+            ],
+            "correctIndex": 2,
+            "explanation": "5 becomes root. 3 < 5, so 3 becomes the left child of 5."
+        },
+        {
+            "question": "What is the height of a tree with only a root node?",
+            "options": [
+                "0",
+                "1",
+                "-1",
+                "Undefined"
+            ],
+            "correctIndex": 0,
+            "explanation": "A tree with only the root has height 0 (zero edges from root to deepest leaf)."
+        },
+        {
+            "question": "Post-order traversal visits nodes in which order?",
+            "options": [
+                "Root → Left → Right",
+                "Left → Root → Right",
+                "Left → Right → Root",
+                "Right → Left → Root"
+            ],
+            "correctIndex": 2,
+            "explanation": "Post-order: Left → Right → Root. The root is always visited last."
+        },
+        {
+            "question": "In a BST, searching for a value has what average time complexity?",
+            "options": [
+                "O(n)",
+                "O(log n)",
+                "O(n²)",
+                "O(1)"
+            ],
+            "correctIndex": 1,
+            "explanation": "In a balanced BST, each comparison halves the search space — O(log n) on average."
+        },
+        {
+            "question": "Which of these is NOT a valid tree traversal?",
+            "options": [
+                "In-order",
+                "Pre-order",
+                "Mid-order",
+                "Post-order"
+            ],
+            "correctIndex": 2,
+            "explanation": "Mid-order is not a valid traversal. The three standard ones are In-order, Pre-order, and Post-order."
+        }
+    ],
+    "linked-list": [
+        {
+            "question": "What is the time complexity to access the nth element of a Singly Linked List?",
+            "options": [
+                "O(1)",
+                "O(log n)",
+                "O(n)",
+                "O(n²)"
+            ],
+            "correctIndex": 2,
+            "explanation": "Unlike arrays, linked lists require traversal from the head — O(n) to reach position n."
+        },
+        {
+            "question": "Which pointer does each node in a Singly Linked List contain?",
+            "options": [
+                "prev only",
+                "next only",
+                "both prev and next",
+                "neither"
+            ],
+            "correctIndex": 1,
+            "explanation": "A singly linked list node contains a data field and a single 'next' pointer."
+        },
+        {
+            "question": "What is the time complexity to insert a node at the HEAD of a linked list?",
+            "options": [
+                "O(n)",
+                "O(log n)",
+                "O(n²)",
+                "O(1)"
+            ],
+            "correctIndex": 3,
+            "explanation": "Inserting at the head just updates the head pointer — it's O(1) regardless of list size."
+        },
+        {
+            "question": "What does the last node in a Singly Linked List point to?",
+            "options": [
+                "The head",
+                "The previous node",
+                "null",
+                "Itself"
+            ],
+            "correctIndex": 2,
+            "explanation": "The last node's 'next' pointer is null, indicating the end of the list."
+        },
+        {
+            "question": "Which type of linked list allows traversal in both directions?",
+            "options": [
+                "Singly Linked List",
+                "Circular Linked List",
+                "Doubly Linked List",
+                "Linear Linked List"
+            ],
+            "correctIndex": 2,
+            "explanation": "A Doubly Linked List has both 'next' and 'prev' pointers, enabling two-way traversal."
+        },
+        {
+            "question": "To delete a node from the middle of a linked list, what must you update?",
+            "options": [
+                "Head pointer",
+                "Predecessor's next pointer",
+                "Tail pointer",
+                "All nodes' pointers"
+            ],
+            "correctIndex": 1,
+            "explanation": "To delete a middle node, update its predecessor's 'next' to skip the deleted node."
+        },
+        {
+            "question": "What is the space complexity of a Linked List with n nodes?",
+            "options": [
+                "O(1)",
+                "O(log n)",
+                "O(n)",
+                "O(n²)"
+            ],
+            "correctIndex": 2,
+            "explanation": "Each node stores data and a pointer, so total space is proportional to n — O(n)."
+        },
+        {
+            "question": "In a Circular Linked List, the last node points to:",
+            "options": [
+                "null",
+                "The previous node",
+                "The head/first node",
+                "Itself"
+            ],
+            "correctIndex": 2,
+            "explanation": "In a circular linked list, the last node's 'next' points back to the head, forming a cycle."
+        },
+        {
+            "question": "Which operation is O(1) in a linked list but O(n) in an array?",
+            "options": [
+                "Access by index",
+                "Search by value",
+                "Insert at middle",
+                "Insert at head"
+            ],
+            "correctIndex": 3,
+            "explanation": "Inserting at head of a linked list is O(1). In an array, all elements must shift — O(n)."
+        },
+        {
+            "question": "A linked list with only one node — what does its 'next' pointer contain?",
+            "options": [
+                "Its own address",
+                "The head address",
+                "0",
+                "null"
+            ],
+            "correctIndex": 3,
+            "explanation": "A single-node list has no successor, so its 'next' pointer is null."
+        }
+    ]
+}
