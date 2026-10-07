@@ -48,7 +48,29 @@ app.use("/api/shop", shopRouter);
 app.use("/api/streak", streakRouter);
 app.use("/api/tournaments", tournamentsRouter);
 
-// ── Health check ──────────────────────────────────────────────────────────────
+// ── Root & Health check ──────────────────────────────────────────────────────
+app.get("/", (_req, res) => {
+  res.json({
+    status: "online",
+    service: "CodeClash Backend API",
+    frontend: FRONTEND_URL,
+    health: "/health",
+    endpoints: [
+      "/api/auth",
+      "/api/run",
+      "/api/match",
+      "/api/leaderboard",
+      "/api/profile",
+      "/api/progress",
+      "/api/replay",
+      "/api/seasons",
+      "/api/shop",
+      "/api/streak",
+      "/api/tournaments",
+    ],
+  });
+});
+
 app.get("/health", (_req, res) => res.json({ ok: true, ts: Date.now() }));
 
 // ── Error handler ─────────────────────────────────────────────────────────────
