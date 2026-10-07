@@ -45,7 +45,7 @@ export default function ReplayPage() {
             <ArrowLeft className="h-3.5 w-3.5" /> back to history
           </Link>
         </div>
-        <ReplayTheater match={data.match} />
+        <ReplayTheater match={data.match} onClose={() => window.history.back()} />
       </div>
     </div>
   );
