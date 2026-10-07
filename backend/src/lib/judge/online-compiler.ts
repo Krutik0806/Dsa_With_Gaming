@@ -11,8 +11,9 @@ import {
   serializeBatch,
 } from "./harness";
 
-const API_KEY = process.env.ONLINE_COMPILER_API_KEY || "fca0c882d1c90190aca2a11e1ac89c79";
-const API_URL = "https://api.onlinecompiler.io/api/run-code-sync/";
+const API_KEY = process.env.ONECOMPILER_API_KEY || process.env.ONLINE_COMPILER_API_KEY || "oc_455eu4zx7_455eu4zxt_cc36483fb1806c37a6d824b96bf76c236548a8eedd9002ab";
+const ONLINECOMPILER_URL = "https://api.onlinecompiler.io/api/run-code-sync/";
+const ONECOMPILER_URL = "https://api.onecompiler.com/v1/run";
 
 export const isOnlineCompilerAvailable = Boolean(API_KEY);
 
@@ -25,8 +26,57 @@ interface OnlineCompilerResponse {
   memory?: string;
 }
 
-export async function runCodeOnline(compiler: string, code: string, input: string): Promise<OnlineCompilerResponse> {
-  const res = await fetch(API_URL, {
+export async function runCodeOnline(
+  compiler: string,
+  code: string,
+  input: string,
+  lang?: "cpp" | "py" | "java"
+): Promise<OnlineCompilerResponse> {
+  // Check if API key is a OneCompiler key (starts with 'oc_')
+  const isOneCompiler = API_KEY.startsWith("oc_");
+
+  if (isOneCompiler) {
+    const language = lang === "py" || compiler.includes("python")
+      ? "python"
+      : lang === "java" || compiler.includes("jdk")
+      ? "java"
+      : "cpp";
+
+    const fileName = language === "python" ? "main.py" : language === "java" ? "Main.java" : "main.cpp";
+
+    const res = await fetch(ONECOMPILER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-API-Key": API_KEY,
+      },
+      body: JSON.stringify({
+        language,
+        stdin: input,
+        files: [{ name: fileName, content: code }],
+      }),
+    });
+
+    if (!res.ok) {
+      const txt = await res.text();
+      throw new Error(`OneCompiler API error (${res.status}): ${txt}`);
+    }
+
+    const data = await res.json() as any;
+    const isSuccess = data.status === "success";
+    const hasError = Boolean(data.stderr || data.exception);
+
+    return {
+      output: data.stdout || "",
+      error: data.stderr || data.exception || undefined,
+      status: isSuccess && !hasError ? "success" : "error",
+      exit_code: isSuccess && !hasError ? 0 : (data.stdout?.includes("##BEGIN##") ? 0 : 1),
+      time: data.executionTime !== undefined ? (data.executionTime / 1000).toString() : undefined,
+    };
+  }
+
+  // Fallback to onlinecompiler.io
+  const res = await fetch(ONLINECOMPILER_URL, {
     method: "POST",
     headers: {
       "Authorization": API_KEY,
@@ -184,7 +234,7 @@ export async function judgeOnline(
   else fullSource = buildJavaBatch(pl, code);
 
   const stdin = serializeBatch(pl.params, problem.tests);
-  const resp = await runCodeOnline(compiler, fullSource, stdin);
+  const resp = await runCodeOnline(compiler, fullSource, stdin, language);
 
   const totalTime = Math.round(parseFloat(resp.time || "0") * 1000) || (Date.now() - started);
 
