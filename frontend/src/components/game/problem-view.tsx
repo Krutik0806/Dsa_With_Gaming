@@ -102,27 +102,14 @@ export function ProblemView({ slug, alreadySolved }: { slug: string; alreadySolv
     setRunning(true);
     setResult(null);
     try {
-      const res = await fetch("/api/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, code, language }),
-      });
-      if (!res.ok) {
-        const data = await res.json();
-        toast.error(data.error ?? "Judge error");
-        return;
-      }
-      const data: CodeRunResponse = await res.json();
+      const res = await api.post<CodeRunResponse>("/run", { slug, code, language });
+      const data = res.data;
       setResult(data);
       if (data.compileError) playSound("wrong");
       if (data.ok && !solved) {
-        const prog = await fetch("/api/progress", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ kind: "PROBLEM", refId: slug }),
-        });
-        if (prog.ok) {
-          const progData = await prog.json();
+        try {
+          const prog = await api.post<any>("/progress", { kind: "PROBLEM", refId: slug });
+          const progData = prog.data;
           if (progData.user) setUser(progData.user);
           setSolved(true);
           setJustSolved(true);
@@ -138,11 +125,12 @@ export function ProblemView({ slug, alreadySolved }: { slug: string; alreadySolv
                 : `${problem.title} conquered.`,
             }
           );
-          // router.refresh() no-op in React;
+        } catch {
+          // non-fatal progress error
         }
       }
-    } catch {
-      toast.error("Network error — the judge is unreachable.");
+    } catch (err: any) {
+      toast.error(err.response?.data?.error ?? "Judge error");
     } finally {
       setRunning(false);
     }

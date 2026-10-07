@@ -140,22 +140,18 @@ export function LessonView({ lesson, alreadyCompleted }: { lesson: Lesson; alrea
     if (completed || saving) return;
     setSaving(true);
     try {
-      const res = await fetch("/api/progress", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ kind: "LESSON", refId: lesson.slug }),
+      const res = await api.post<{ user?: any; xpEarned?: number }>("/progress", {
+        kind: "LESSON",
+        refId: lesson.slug,
       });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.user) setUser(data.user);
-        setCompleted(true);
-        setJustCompleted(true);
-        playSound("xp");
-        toast.success(`Lesson complete — +${data.xpEarned} XP`, {
-          description: "Your skill map just got sharper.",
-        });
-        // router.refresh() no-op in React;
-      }
+      const data = res.data;
+      if (data.user) setUser(data.user);
+      setCompleted(true);
+      setJustCompleted(true);
+      playSound("xp");
+      toast.success(`Lesson complete — +${data.xpEarned ?? 0} XP`, {
+        description: "Your skill map just got sharper.",
+      });
     } catch {
       toast.error("Could not save progress — try again.");
     } finally {
