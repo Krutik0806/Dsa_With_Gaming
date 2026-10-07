@@ -21,6 +21,7 @@ import {
   Swords,
 } from "lucide-react";
 import { Logo } from "@/components/game/logo";
+import { ThemeToggle } from "@/components/game/theme-toggle";
 import { TypingTerminal } from "@/components/game/typing-terminal";
 import { RankBadge } from "@/components/game/rank-badge";
 import { RANKS } from "@/lib/game";
@@ -90,6 +91,7 @@ export default function LandingPage() {
             </a>
           </div>
           <div className="flex items-center gap-2.5">
+            <ThemeToggle />
             {user ? (
               <Link to="/app"
                 className="inline-flex h-9 items-center gap-2 rounded-lg bg-emerald-500 px-4 font-mono text-sm font-bold text-zinc-950 transition-all hover:bg-emerald-400 hover:shadow-[0_0_20px_-4px_rgba(52,211,153,0.7)]"

@@ -23,6 +23,7 @@ import { XPBar } from "@/components/game/xp-bar";
 import { useAuth } from "@/lib/auth-context";
 import { CommandPalette, CommandPaletteTrigger } from "@/components/game/command-palette";
 import { SoundToggle } from "@/components/game/sound-toggle";
+import { ThemeToggle } from "@/components/game/theme-toggle";
 import { getShopItem } from "@/lib/shop";
 import { playSound } from "@/lib/sound";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -217,6 +218,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="flex items-center gap-2.5">
             <CommandPaletteTrigger onClick={() => setPaletteOpen(true)} />
             <SoundToggle />
+            <ThemeToggle />
             <StreakChip streakCount={user.streakCount} lastActiveDay={user.lastActiveDay} />
             <Link to="/app/shop"
               title="arena shop"
