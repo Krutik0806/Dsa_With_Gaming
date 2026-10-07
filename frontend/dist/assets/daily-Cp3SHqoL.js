@@ -1,0 +1,1 @@
+import{P as n}from"./problems-Bl8LNw81.js";function a(){const t=new Date;return`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,"0")}-${String(t.getDate()).padStart(2,"0")}`}function l(){const t=a();let e=0;for(let r=0;r<t.length;r++)e=e*31+t.charCodeAt(r)>>>0;return n[e%n.length]}export{l as d};
